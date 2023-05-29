@@ -1,2 +1,2 @@
 # AP2-POO
-AP2 de Programação Orientada a Objetos
+Avaliação Parcial 2 - Programação Orientada a Objetos
