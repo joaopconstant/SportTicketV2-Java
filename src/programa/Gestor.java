@@ -1,5 +1,6 @@
 package programa;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,7 +15,9 @@ public class Gestor {
     public static void run() {
         int opcao;
         Scanner scanner = new Scanner(System.in);
-        String nome, data, local, nomeBusca;
+        String nome, local, nomeBusca;
+        int ano, mes, dia;
+        LocalDate data;
         int ingressosInt, ingressosMeia;
         ArrayList<Partida> partidas = new ArrayList<Partida>();
         Partida partidaVenda, partidaProcurada;
@@ -35,8 +38,16 @@ public class Gestor {
                     if (procuraPartida(partidas, nome) != null) {
                         System.out.println("Erro! Partida já foi criada!");
                     } else {
-                        System.out.print("Data da partida: ");
-                        data = scanner.nextLine();
+                        System.out.print("Dia da data da partida: ");
+                        dia = scanner.nextInt();
+                        scanner.nextLine();
+                        System.out.print("Mês da data da partida: ");
+                        mes = scanner.nextInt();
+                        scanner.nextLine();
+                        System.out.print("Ano da data da partida: ");
+                        ano = scanner.nextInt();
+                        scanner.nextLine();
+                        data = LocalDate.of(ano, mes, dia);
                         System.out.print("Local da partida: ");
                         local = scanner.nextLine();
                         System.out.print("Número de ingressos tipo inteira: ");
@@ -62,7 +73,9 @@ public class Gestor {
                         if (partidaVenda != null) {
                             ingresso = venderIngresso(scanner, partidaVenda);
                         } else {
-                            System.out.println("Erro! Partida com nome " + nomeBusca + " não encontrada!");
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("Erro! Partida com nome ").append(nomeBusca).append(" não encontrada!");
+                            System.out.println(sb);
                         }
 
                     } else {
@@ -84,7 +97,9 @@ public class Gestor {
                     if (partidas.size() > 0) {
                         System.out.println("Ingressos disponíveis:");
                         for (Partida partida : partidas) {
-                            System.out.println(partida.getNome() + ": " + partida.getIngressos());
+                            StringBuilder sb = new StringBuilder();
+                            sb.append(partida.getNome()).append(": ").append(partida.getIngressos());
+                            System.out.println(sb);
                         }
                     } else {
                         System.out.println("Você precisa primeiro cadastrar uma partida!");
@@ -119,8 +134,13 @@ public class Gestor {
                         nome = scanner.nextLine();
                         partidaProcurada = procuraPartida(partidas, nome);
                         if (partidaProcurada != null) {
-                            System.out.print("Data da partida: ");
-                            data = scanner.nextLine();
+                            System.out.print("Dia da data da partida: ");
+                            dia = scanner.nextInt();
+                            System.out.println("Mês da data da partida: ");
+                            mes = scanner.nextInt();
+                            System.out.println("Ano da data da partida: ");
+                            ano = scanner.nextInt();
+                            data = LocalDate.of(ano, mes, dia);
                             System.out.print("Local da partida: ");
                             local = scanner.nextLine();
                             System.out.print("Valor do ingresso: ");
