@@ -1,17 +1,19 @@
 package entidades;
 
+import java.time.LocalDate;
+
 import entidades.ingressos.TipoIngresso;
 
 public class Partida {
     private String nome;
-    private String data;
+    private LocalDate data;
     private String local;
     private int ingressosInteira;
     private int ingressosMeia;
     private double valorIngresso;
 
 
-    public Partida(String nome, String data, String local, int ingressosInteira, int ingressosMeia, double valorIngresso) {
+    public Partida(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double valorIngresso) {
         this.nome = nome;
         this.data = data;
         this.local = local;
@@ -28,7 +30,7 @@ public class Partida {
         return this.nome;
     }
 
-    public String getData() {
+    public LocalDate getData() {
         return this.data;
     }
 
@@ -40,7 +42,7 @@ public class Partida {
         return this.ingressosInteira + this.ingressosMeia;
     }
 
-    public void atualizaInfo(String data, String local, double valor) {
+    public void atualizaInfo(LocalDate data, String local, double valor) {
         this.data = data;
         this.local = local;
         this.valorIngresso = valor;
@@ -69,10 +71,13 @@ public class Partida {
 
     @Override
     public String toString() {
-        return "Partida " + this.getNome()
-                + "\nData: " + this.getData()
-                + "\nLocal: " + this.getLocal()
-                + "\nValor do ingresso: " + this.getValorIngresso()
-                + "\nIngressos disponíveis: " + this.getIngressos();
+        StringBuilder sb = new StringBuilder();
+        sb.append("Partida: ").append(this.getNome())
+        .append("\nData: ").append(this.getData())
+        .append("\nLocal: ").append(this.getLocal())
+        .append("\nValor do ingresso: ") .append(this.getValorIngresso())
+        .append("\nIngressos disponíveis: ").append(this.getIngressos());
+
+        return sb.toString();
     }
 }
