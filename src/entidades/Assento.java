@@ -19,6 +19,9 @@ public class Assento {
 
     @Override
     public String toString() {
-        return this.getFila() + Integer.toString(this.getNumero());
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.getFila()).append(Integer.toString(this.getNumero()));
+        
+        return sb.toString();
     }
 }
