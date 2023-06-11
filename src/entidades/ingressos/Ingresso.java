@@ -21,9 +21,12 @@ public abstract class Ingresso {
 
     @Override
     public String toString() {
-        return "Partida: " + this.partida.getNome()
-            + "\nAssento: " + this.assento
-            + "\nTipo: " + this.tipo
-            + "\nValor (R$): " + this.getPreco();
+        StringBuilder sb = new StringBuilder();
+        sb.append("Partida").append(this.partida.getNome())
+        .append("\nAssento").append(this.assento)
+        .append("\nTipo: ").append(this.tipo)
+        .append("\nValor (R$): ").append(this.getPreco());
+        
+        return sb.toString();
     }
 }
