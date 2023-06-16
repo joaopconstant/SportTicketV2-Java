@@ -2,7 +2,6 @@ package programa;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import entidades.*;
 import entidades.ingressos.Ingresso;
@@ -10,11 +9,13 @@ import entidades.ingressos.IngressoInteira;
 import entidades.ingressos.IngressoMeia;
 import entidades.ingressos.TipoIngresso;
 
+import util.LeitoraDados;
+
 public class Gestor {
 
     public static void run() {
-        int opcao;
-        Scanner scanner = new Scanner(System.in);
+        String opcao;
+        LeitoraDados leitora = new LeitoraDados();
         String nome, local, nomeBusca;
         int ano, mes, dia;
         LocalDate data;
@@ -27,51 +28,50 @@ public class Gestor {
         System.out.println("Sistema de compra de ingressos!");
         while (true) {
             System.out.println(opcoes());
-            opcao = scanner.nextInt();
-            scanner.nextLine();
+            opcao = leitora.lerTexto();
 
             switch (opcao) {
-                case 1:
+                case "1":
                     System.out.println("Insira as informações da partida:");
                     System.out.print("Nome da partida: ");
-                    nome = scanner.nextLine();
+                    nome = leitora.lerTexto();
                     if (procuraPartida(partidas, nome) != null) {
                         System.out.println("Erro! Partida já foi criada!");
                     } else {
                         System.out.print("Dia da data da partida: ");
-                        dia = scanner.nextInt();
-                        scanner.nextLine();
+                        dia = leitora.lerInt();
+                        leitora.lerTexto();
                         System.out.print("Mês da data da partida: ");
-                        mes = scanner.nextInt();
-                        scanner.nextLine();
+                        mes = leitora.lerInt();
+                        leitora.lerTexto();
                         System.out.print("Ano da data da partida: ");
-                        ano = scanner.nextInt();
-                        scanner.nextLine();
+                        ano = leitora.lerInt();
+                        leitora.lerTexto();
                         data = LocalDate.of(ano, mes, dia);
                         System.out.print("Local da partida: ");
-                        local = scanner.nextLine();
+                        local = leitora.lerTexto();
                         System.out.print("Número de ingressos tipo inteira: ");
-                        ingressosInt = scanner.nextInt();
-                        scanner.nextLine();
+                        ingressosInt = leitora.lerInt();
+                        leitora.lerTexto();
                         System.out.print("Número de ingressos tipo meia: ");
-                        ingressosMeia = scanner.nextInt();
-                        scanner.nextLine();
+                        ingressosMeia = leitora.lerInt();
+                        leitora.lerTexto();
                         System.out.print("Valor do ingresso: ");
-                        valor = scanner.nextDouble();
-                        scanner.nextLine();
+                        valor = leitora.lerDouble();
+                        leitora.lerTexto();
                         partidas.add(new Partida(nome, data, local, ingressosInt, ingressosMeia, valor));
                         System.out.println("Partida criada!");
                     }
                     break;
-                case 2:
+                case "2":
                     if (partidas.size() > 0) {
                         System.out.println("Vendendo um ingresso!");
                         System.out.print("Informe o nome da partida que deseja comprar ingresso: ");
-                        nomeBusca = scanner.nextLine();
+                        nomeBusca = leitora.lerTexto();
 
                         partidaVenda = procuraPartida(partidas, nomeBusca);
                         if (partidaVenda != null) {
-                            ingresso = venderIngresso(scanner, partidaVenda);
+                            ingresso = venderIngresso(leitora, partidaVenda);
                         } else {
                             StringBuilder sb = new StringBuilder();
                             sb.append("Erro! Partida com nome ").append(nomeBusca).append(" não encontrada!");
@@ -82,7 +82,7 @@ public class Gestor {
                         System.out.println("Você precisa primeiro cadastrar uma partida!");
                     }
                     break;
-                case 3:
+                case "3":
                     if (partidas.size() > 0) {
                         System.out.println("Informações das partidas:");
                         for (Partida partida : partidas) {
@@ -93,7 +93,7 @@ public class Gestor {
                         System.out.println("Você precisa primeiro cadastrar uma partida!");
                     }
                     break;
-                case 4:
+                case "4":
                     if (partidas.size() > 0) {
                         System.out.println("Ingressos disponíveis:");
                         for (Partida partida : partidas) {
@@ -105,7 +105,7 @@ public class Gestor {
                         System.out.println("Você precisa primeiro cadastrar uma partida!");
                     }
                     break;
-                case 5:
+                case "5":
                     if (ingresso != null) {
                         System.out.println("Informações sobre o último ingresso vendido:");
                         System.out.println(ingresso);
@@ -113,10 +113,10 @@ public class Gestor {
                         System.out.println("Você precisa primeiro vender um ingresso!");
                     }
                     break;
-                case 6:
+                case "6":
                     if (partidas.size() > 0) {
                         System.out.print("Informe o nome da partida a ser excluída: ");
-                        nome = scanner.nextLine();
+                        nome = leitora.lerTexto();
                         partidaProcurada = procuraPartida(partidas, nome);
                         if (partidaProcurada != null) {
                             partidas.remove(partidaProcurada);
@@ -128,24 +128,24 @@ public class Gestor {
                         System.out.println("Você precisa primeiro cadastrar uma partida!");
                     }
                     break;
-                case 7:
+                case "7":
                     if (partidas.size() > 0) {
                         System.out.print("Informe o nome da partida a ser editada: ");
-                        nome = scanner.nextLine();
+                        nome = leitora.lerTexto();
                         partidaProcurada = procuraPartida(partidas, nome);
                         if (partidaProcurada != null) {
                             System.out.print("Dia da data da partida: ");
-                            dia = scanner.nextInt();
+                            dia = leitora.lerInt();
                             System.out.println("Mês da data da partida: ");
-                            mes = scanner.nextInt();
+                            mes = leitora.lerInt();
                             System.out.println("Ano da data da partida: ");
-                            ano = scanner.nextInt();
+                            ano = leitora.lerInt();
                             data = LocalDate.of(ano, mes, dia);
                             System.out.print("Local da partida: ");
-                            local = scanner.nextLine();
+                            local = leitora.lerTexto();
                             System.out.print("Valor do ingresso: ");
-                            valor = scanner.nextDouble();
-                            scanner.nextLine();
+                            valor = leitora.lerDouble();
+                            leitora.lerTexto();
                             partidaProcurada.atualizaInfo(data, local, valor);
                         } else {
                             System.out.println("Partida não localizada!");
@@ -155,16 +155,16 @@ public class Gestor {
                     }
                     break;
                 default:
-                    opcao = 0;
+                    opcao = "0";
             }
 
-            if (opcao == 0) {
+            if (opcao == "0") {
                 System.out.println("Saindo do programa...");
                 break;
             }
         }
 
-        scanner.close();
+        leitora.fecharLeitor();
     }
 
     public static String opcoes() {
@@ -193,7 +193,7 @@ public class Gestor {
         return null;
     }
 
-    public static Ingresso venderIngresso(Scanner scanner, Partida partidaVenda) {
+    public static Ingresso venderIngresso(LeitoraDados leitora, Partida partidaVenda) {
         String opcaoIngresso;
         char letraAssento;
         TipoIngresso tipo;
@@ -202,14 +202,14 @@ public class Gestor {
         Assento assento;
 
         System.out.print("Letra do assento: ");
-        letraAssento = scanner.next().charAt(0);
+        letraAssento = leitora.lerChar();
         System.out.print("Número do assento: ");
-        numeroAssento = scanner.nextInt();
-        scanner.nextLine();
+        numeroAssento = leitora.lerInt();
+        leitora.lerTexto();
         assento = new Assento(numeroAssento, letraAssento);
 
         System.out.print("O seu ingresso é meia (s/n)? ");
-        opcaoIngresso = scanner.nextLine();
+        opcaoIngresso = leitora.lerTexto();
 
         if (opcaoIngresso.equals("s")) {
             tipo = TipoIngresso.MEIA;
