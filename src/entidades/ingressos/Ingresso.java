@@ -19,13 +19,17 @@ public abstract class Ingresso {
         return this.preco;
     }
 
+    public Partida getPartida() {
+        return this.partida;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Partida").append(this.partida.getNome())
-        .append("\nAssento").append(this.assento)
-        .append("\nTipo: ").append(this.tipo)
-        .append("\nValor (R$): ").append(this.getPreco());
+        sb.append("Partida").append(this.partida.getNome());
+        sb.append("\nAssento: ").append(this.assento);
+        sb.append("\nTipo: ").append(this.tipo);
+        sb.append("\nValor (R$): ").append(this.getPreco());
         
         return sb.toString();
     }
