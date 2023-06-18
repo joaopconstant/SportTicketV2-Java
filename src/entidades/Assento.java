@@ -20,7 +20,8 @@ public class Assento {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.getFila()).append(Integer.toString(this.getNumero()));
+        sb.append(this.getFila());
+        sb.append(Integer.toString(this.getNumero()));
         
         return sb.toString();
     }
