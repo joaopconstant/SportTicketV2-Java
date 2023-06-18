@@ -72,11 +72,11 @@ public class Partida {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Partida: ").append(this.getNome())
-        .append("\nData: ").append(this.getData())
-        .append("\nLocal: ").append(this.getLocal())
-        .append("\nValor do ingresso: ") .append(this.getValorIngresso())
-        .append("\nIngressos disponíveis: ").append(this.getIngressos());
+        sb.append("Partida: ").append(this.getNome());
+        sb.append("\nData: ").append(this.getData());
+        sb.append("\nLocal: ").append(this.getLocal());
+        sb.append("\nValor do ingresso: ") .append(this.getValorIngresso());
+        sb.append("\nIngressos disponíveis: ").append(this.getIngressos());
 
         return sb.toString();
     }
