@@ -14,15 +14,25 @@ public class LeitoraDados {
     }
 
     public int lerInt() {
-        return scanner.nextInt();
+        int valor = scanner.nextInt();
+        limparBuffer();
+        return valor;
     }
 
     public double lerDouble() {
-        return scanner.nextDouble();
+        double valor = scanner.nextDouble();
+        limparBuffer();
+        return valor;
     }
 
     public char lerChar() {
-        return scanner.next().charAt(0);
+        char valor = scanner.next().charAt(0);
+        limparBuffer();
+        return valor;
+    }
+
+    public void limparBuffer() {
+        scanner.nextLine();
     }
 
     public void fecharLeitor() {
