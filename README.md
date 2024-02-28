@@ -1,32 +1,34 @@
-# AP2-POO
-Avaliação Parcial 2 - Programação Orientada a Objetos
+# AP2-POO - Atualização de Projeto
 
+Esta versão do projeto inclui uma série de melhorias e novas funcionalidades em relação à versão anterior. Abaixo estão listadas as principais mudanças realizadas:
 
-### Requisitos para o projeto
+### Refatoração de Código
 
- - [x] Refatore o código para evitar construção de mensagens por concatenação de strings. Utilize o  `StringBuilder`  no lugar;
- - [x] Refatore o código para substituir as informações de data por objetos da classe  `LocalDate`,  `LocalTime`  ou  `LocalDateTime`  conforme necessário;
- - [x] Implemente os métodos  `toString()`,  `equals()`  e  `hashCode()`  onde for necessário;
- - [x] Refatore organização do projeto:
-	 - [x] Criar pacote  `dao`, responsável por armazenar as classes DAO;
-	 - [x] Refatorar pacote  `cli`  para pacote  `programa`, responsável por armazenar as classes de operação do sistema;
-	 - [x] Refatorar classe  `Cli.java`  para  `Gestor.java`;
-	 - [x] Criar pacote  `util`, junto com classes para manipulação de arquivo e leitura de dados do usuário;
-	 - [x] Criar um subpacote  `ingresso`  dentro do pacote  `entidades`, para armazenar as classes de ingressos;
-	 - [x] Refatorar o código para a nova organização de pacotes;
- - [x] Mover da classe `Gestor.java` códigos de leitura de dados de usuário;
- - [x] Implementar classes `PartidaDAO.java` e `IngressoDAO.java`, que vão realizar as operações de armazenamento e controle dos dados de partidas e de ingressos, respectivamente;
- - [x] Possibilitar que a aplicação realize as seguintes operações, através de comandos por texto:
-	 - [x] Operações de partida:
-		-  Criar, excluir, editar e atualizar partidas;
-		-   Listar todas as partidas;
-		-   Exibir informações sobre uma partida específica;
-	- [x] Operações de ingressos:
-		-   Realiza a venda de um ingresso;
-		-   Exibe o número de ingressos restantes para todas as partidas;
-		-   Exibe o número de ingressos restantes para uma partida;
-		-   Lista todos os ingressos vendiddos de uma partida;
-		-   Exibe os dados do último ingresso vendido;
-	- [x] O programa deve salvar automaticamente os dados em arquivos de texto.
+- Utilização do `StringBuilder` para construção de mensagens, substituindo concatenação de strings.
+- Substituição das informações de data por objetos da classe `LocalDate`, `LocalTime` ou `LocalDateTime` conforme necessário.
+- Implementação dos métodos `toString()`, `equals()` e `hashCode()` onde necessário.
 
- 
+### Reorganização do Projeto
+
+- Criação do pacote `dao`, responsável por armazenar as classes DAO.
+- Refatoração do pacote `cli` para `programa`, responsável por armazenar as classes de operação do sistema.
+- Refatoração da classe `Cli.java` para `Gestor.java`.
+- Criação do pacote `util`, junto com classes para manipulação de arquivo e leitura de dados do usuário.
+- Criação de um subpacote `ingresso` dentro do pacote `entidades`, para armazenar as classes de ingressos.
+- Reorganização do código para se adequar à nova estrutura de pacotes.
+
+### Implementação de Novas Funcionalidades
+
+- Implementação das classes `PartidaDAO.java` e `IngressoDAO.java`, responsáveis por realizar as operações de armazenamento e controle dos dados de partidas e ingressos, respectivamente.
+- Adição de operações de partida, como criar, excluir, editar e atualizar partidas, listar todas as partidas e exibir informações sobre uma partida específica.
+- Adição de operações de ingressos, como realizar a venda de um ingresso, exibir o número de ingressos restantes para todas as partidas, para uma partida específica, listar todos os ingressos vendidos de uma partida e exibir os dados do último ingresso vendido.
+- Implementação da capacidade do programa de salvar automaticamente os dados em arquivos de texto.
+
+### Outras Mudanças
+
+- Remoção de códigos de leitura de dados de usuário da classe `Gestor.java`, movendo-os para classes apropriadas no pacote `util`.
+- Atualização da documentação e dos comentários do código para refletir as mudanças realizadas.
+
+Para mais informações ou para entrar em contato, você pode me encontrar em [seu_email@exemplo.com](mailto:seu_email@exemplo.com).
+
+Este projeto é distribuído sob a licença [MIT](LICENSE), o que significa que você pode usá-lo livremente, inclusive para fins comerciais, desde que mantenha o aviso de direitos autorais.
