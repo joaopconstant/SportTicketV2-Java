@@ -29,4 +29,6 @@ Esta versão do projeto inclui uma série de melhorias e novas funcionalidades e
 - Remoção de códigos de leitura de dados de usuário da classe `Gestor.java`, movendo-os para classes apropriadas no pacote `util`.
 - Atualização da documentação e dos comentários do código para refletir as mudanças realizadas.
 
+### Licença
+
 Este projeto é distribuído sob a licença [MIT](LICENSE), o que significa que você pode usá-lo livremente, inclusive para fins comerciais, desde que mantenha o aviso de direitos autorais.
