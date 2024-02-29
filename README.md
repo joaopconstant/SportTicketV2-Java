@@ -1,4 +1,4 @@
-# AP2-POO - Atualização de Projeto
+# SportTicket V2
 
 Esta versão do projeto inclui uma série de melhorias e novas funcionalidades em relação à versão anterior. Abaixo estão listadas as principais mudanças realizadas:
 
